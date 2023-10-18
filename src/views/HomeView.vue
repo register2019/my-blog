@@ -1,9 +1,13 @@
+<template>
+  <el-row>
+    <el-col :span="8"></el-col>
+    <el-col :span="8"><docs-index /></el-col>
+    <el-col :span="8"></el-col>
+  </el-row>
+</template>
+
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import DocsIndex from './docs/docs-index.vue'
 </script>
 
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
+<style scoped></style>

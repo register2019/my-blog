@@ -19,7 +19,9 @@ const toPage = (url: string) => {
 
 <style scoped>
 .wrapper {
-  margin: 20px 0;
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: aliceblue;
 }
 
 .docs {

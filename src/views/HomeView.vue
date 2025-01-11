@@ -4,13 +4,16 @@
     <div class="layer2"></div>
     <div class="layer3"></div>
     <div class="layer4"></div>
-    <el-col :span="8"></el-col>
+    <el-col :span="8">
+      <Clock />
+    </el-col>
     <el-col :span="8"><docs-index /></el-col>
     <el-col :span="8"></el-col>
   </el-row>
 </template>
 
 <script setup lang="ts">
+import Clock from "@/components/Filp/index.vue";
 import DocsIndex from './docs/docs-index.vue'
 </script>
 

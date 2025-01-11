@@ -175,51 +175,41 @@ onMounted(() => {
 }
 
 .clock .flip .back::after {
-  -webkit-transform-origin: center top;
   transform-origin: center top;
-  -webkit-transform: rotateX(0.5turn);
   transform: rotateX(0.5turn);
 }
 
 .clock .flip.running .front::before {
-  -webkit-transform-origin: center bottom;
   transform-origin: center bottom;
-  -webkit-animation: frontFlipDown 0.6s ease-in-out;
   animation: frontFlipDown 0.6s ease-in-out;
   box-shadow: 0 -2px 6px rgba(255, 255, 255, 0.3);
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .clock .flip.running .back::after {
-  -webkit-animation: backFlipDown 0.6s ease-in-out;
   animation: backFlipDown 0.6s ease-in-out;
 }
 
 @-webkit-keyframes frontFlipDown {
   to {
-    -webkit-transform: rotateX(0.5turn);
     transform: rotateX(0.5turn);
   }
 }
 
 @keyframes frontFlipDown {
   to {
-    -webkit-transform: rotateX(0.5turn);
     transform: rotateX(0.5turn);
   }
 }
 
 @-webkit-keyframes backFlipDown {
   to {
-    -webkit-transform: rotateX(0);
     transform: rotateX(0);
   }
 }
 
 @keyframes backFlipDown {
   to {
-    -webkit-transform: rotateX(0);
     transform: rotateX(0);
   }
 }

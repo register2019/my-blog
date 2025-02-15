@@ -1,7 +1,16 @@
 <template>
   <div class="wrapper">
-    <h2>文章列表：</h2>
-    <div v-for="docs in docsList" :key="docs.title" class="docs">
+
+    <Title color="#409EFF">
+      <div class="title">
+        <h2>文章列表：</h2>
+        <el-button size="small" link style="color: #ffffff" @click="toAllDocs">
+          更多<el-icon style="margin-left: 5px"><DArrowRight /></el-icon>
+        </el-button>
+      </div>
+    </Title>
+
+    <div v-for="docs in docsList.filter(item => item.isShowHome)" :key="docs.title" class="docs">
       <div class="content" @click="toPage(docs.url)">
         {{ docs.title }}
       </div>
@@ -10,10 +19,17 @@
 </template>
 
 <script setup lang="ts">
-import { docsList } from './mock'
+import { docsList } from '@/utils/mock.ts'
+import { useRouter } from 'vue-router'
+import Title from '@/components/common/Title.vue'
 
 const toPage = (url: string) => {
   window.open(url)
+}
+
+const router = useRouter()
+const toAllDocs = () => {
+  router.push('/all-docs')
 }
 </script>
 
@@ -21,7 +37,12 @@ const toPage = (url: string) => {
 .wrapper {
   padding: 20px 0;
   background-color: rgba(0, 0, 0, 0) !important;
-  color: aliceblue;
+  color: #ffffff;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
 }
 
 .docs {
@@ -37,7 +58,6 @@ const toPage = (url: string) => {
 .content::after {
   content: '';
   position: absolute;
-  width: 0%;
   height: 2px;
   background-color: #409eff;
   bottom: 0;

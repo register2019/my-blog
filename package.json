@@ -12,7 +12,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
     "element-plus": "^2.9.2",
+    "eslint-define-config": "^2.1.0",
     "pinia": "^2.3.0",
     "sass": "^1.83.1",
     "vue": "^3.5.13",

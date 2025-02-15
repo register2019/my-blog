@@ -5,10 +5,12 @@
     <div class="layer3"></div>
     <div class="layer4"></div>
     <el-col :span="8">
-      <Clock />
+
     </el-col>
     <el-col :span="8"><docs-index /></el-col>
-    <el-col :span="8"></el-col>
+    <el-col :span="8">
+      <Clock />
+    </el-col>
   </el-row>
 </template>
 
@@ -17,7 +19,7 @@ import Clock from "@/components/Filp/index.vue";
 import DocsIndex from './docs/docs-index.vue'
 </script>
 
-<style lang="scss"" scoped>
+<style lang="scss" scoped>
 .wrapper {
   height: 100vh;
   background-color: #000;

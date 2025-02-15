@@ -25,6 +25,15 @@ concurrency:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # 单次部署的工作描述
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4  # 确保这里是你查找到的最新版本
+        with:
+          name: my-artifact
+          path: path/to/artifact
   deploy:
     environment:
       name: github-pages

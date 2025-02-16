@@ -13,6 +13,17 @@ const router = createRouter({
       path: '/all-docs',
       name: 'AllDocs',
       component: () => import("@/components/Docs/all-docs.vue")
+    },
+    {
+      path: '/leafer',
+      name: 'Leafer',
+      children: [
+        {
+          path: 'ball',
+          name: "ball",
+          component: () => import('@/components/Leafer/Ball/ball-index.vue')
+        }
+      ]
     }
     // {
     //   path: '/about',

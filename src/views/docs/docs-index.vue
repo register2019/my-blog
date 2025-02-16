@@ -1,6 +1,5 @@
 <template>
   <div class="wrapper">
-
     <Title color="#409EFF">
       <div class="title">
         <h2>文章列表：</h2>
@@ -10,7 +9,7 @@
       </div>
     </Title>
 
-    <div v-for="docs in docsList.filter(item => item.isShowHome)" :key="docs.title" class="docs">
+    <div v-for="docs in docsList.filter((item) => item.isShowHome)" :key="docs.title" class="docs">
       <div class="content" @click="toPage(docs.url)">
         {{ docs.title }}
       </div>
@@ -21,7 +20,7 @@
 <script setup lang="ts">
 import { docsList } from '@/utils/mock.ts'
 import { useRouter } from 'vue-router'
-import Title from '@/components/common/Title.vue'
+import Title from '@/components/Common/Title.vue'
 
 const toPage = (url: string) => {
   window.open(url)
@@ -36,8 +35,8 @@ const toAllDocs = () => {
 <style scoped>
 .wrapper {
   padding: 20px 0;
-  background-color: rgba(0, 0, 0, 0) !important;
   color: #ffffff;
+  z-index: 100;
 }
 
 .title {
@@ -55,7 +54,7 @@ const toAllDocs = () => {
   cursor: pointer;
   font-size: 20px;
 }
-.content::after {
+/* .content::after {
   content: '';
   position: absolute;
   height: 2px;
@@ -63,9 +62,9 @@ const toAllDocs = () => {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  transition: width 0.3s ease;
+  transition: width 0.8s ease;
 }
 .content:hover::after {
   width: 100%;
-}
+} */
 </style>

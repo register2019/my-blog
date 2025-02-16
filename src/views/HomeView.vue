@@ -1,69 +1,48 @@
 <template>
-  <el-row class="wrapper">
-    <div class="layer1"></div>
-    <div class="layer2"></div>
-    <div class="layer3"></div>
-    <div class="layer4"></div>
-    <el-col :span="8">
+  <div v-if="currStatus" class="wrapper">
+    <docs-index style="padding: 0 10px" />
+    <Background />
+  </div>
 
+  <el-row v-else>
+    <el-col :span="8">
+      <Example />
     </el-col>
     <el-col :span="8"><docs-index /></el-col>
     <el-col :span="8">
       <Clock />
     </el-col>
+    <Background />
   </el-row>
 </template>
 
 <script setup lang="ts">
-import Clock from "@/components/Filp/index.vue";
+import Clock from '@/components/Filp/index.vue'
 import DocsIndex from './docs/docs-index.vue'
+import Example from './example/index.vue'
+import { onMounted, ref } from 'vue'
+import Background from '@/components/Common/Background.vue'
+
+const currStatus = ref(false)
+
+function isMobile() {
+  const userAgent = navigator.userAgent.toLowerCase()
+  const mobileKeywords = ['android', 'iphone', 'ipad', 'ipod', 'windows phone']
+  for (let i = 0; i < mobileKeywords.length; i++) {
+    if (userAgent.indexOf(mobileKeywords[i]) !== -1) {
+      return true
+    }
+  }
+  return false
+}
+
+onMounted(() => {
+  currStatus.value = isMobile()
+})
 </script>
 
 <style lang="scss" scoped>
 .wrapper {
-  height: 100vh;
-  background-color: #000;
+  position: relative;
 }
-
-@function get-box-shadow($count) {
-  $shadow: ();
-  @for $i from 1 through $count {
-    $shadow: append($shadow, random(100) + vw random(100) + vh, comma);
-  }
-  @return $shadow;
-}
-
-$durations: 1000s;
-@for $i from 1 through 4 {
-  $size: #{$i}px;
-  $durations: $durations / 2;
-  $count: floor(200 / (4 - $i + 1));
-  .layer#{$i} {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: $size;
-    height: $size;
-    border-radius: $size;
-    box-shadow: get-box-shadow($count);
-    animation: ball-move $durations linear infinite;
-    &::after {
-      content: '';
-      position: fixed;
-      width: inherit;
-      height: inherit;
-      border-radius: inherit;
-      box-shadow: inherit;
-      left: 0;
-      top: 100vh;
-    }
-  }
-}
-
-@keyframes ball-move {
-  to {
-    transform: translateY(-100vh);
-  }
-}
-
 </style>

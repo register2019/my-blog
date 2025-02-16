@@ -10,7 +10,7 @@ export const docsList = [
     isShowHome: true,
   },
   {
-    title: '不一样的动态时钟 React+Leafer实现火车动态时钟',
+    title: 'React+Leafer实现火车动态时钟',
     url: 'https://juejin.cn/post/7454109404122562597',
     isShowHome: true,
   },

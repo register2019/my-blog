@@ -1,6 +1,12 @@
 <template>
   <div v-if="currStatus" class="wrapper">
-    <docs-index style="padding: 0 10px" />
+    <el-tabs type="border-card" style="border: 1px solid transparent">
+      <el-tab-pane label="文章">
+        <docs-index style="padding: 0 10px" />
+      </el-tab-pane>
+      <el-tab-pane label="实例"></el-tab-pane>
+    </el-tabs>
+
     <Background />
   </div>
 
@@ -22,6 +28,7 @@ import DocsIndex from './docs/docs-index.vue'
 import Example from './example/index.vue'
 import { onMounted, ref } from 'vue'
 import Background from '@/components/Common/Background.vue'
+import { useDark } from '@vueuse/core'
 
 const currStatus = ref(false)
 
@@ -38,6 +45,12 @@ function isMobile() {
 
 onMounted(() => {
   currStatus.value = isMobile()
+  const isDark = useDark({
+    selector: 'html',
+    attribute: 'class',
+    valueDark: 'dark',
+    valueLight: 'light'
+  })
 })
 </script>
 

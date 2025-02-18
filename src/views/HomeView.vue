@@ -29,7 +29,9 @@ import Example from './example/index.vue'
 import { onMounted, ref } from 'vue'
 import Background from '@/components/Common/Background.vue'
 import { useDark } from '@vueuse/core'
+import { toggleDark } from '@/utils/dark'
 
+const isSetDark = ref(true)
 const currStatus = ref(false)
 
 function isMobile() {
@@ -45,12 +47,7 @@ function isMobile() {
 
 onMounted(() => {
   currStatus.value = isMobile()
-  const isDark = useDark({
-    selector: 'html',
-    attribute: 'class',
-    valueDark: 'dark',
-    valueLight: 'light'
-  })
+  toggleDark(isSetDark.value)
 })
 </script>
 

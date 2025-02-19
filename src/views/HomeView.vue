@@ -4,16 +4,14 @@
       <el-tab-pane label="文章">
         <docs-index style="padding: 0 10px" />
       </el-tab-pane>
-      <el-tab-pane label="实例"></el-tab-pane>
+      <el-tab-pane label="实例">
+        <Example />
+      </el-tab-pane>
     </el-tabs>
-
-    <Background />
   </div>
 
   <el-row v-else>
-    <el-col :span="8">
-      <Example />
-    </el-col>
+    <el-col :span="8"> </el-col>
     <el-col :span="8"><docs-index /></el-col>
     <el-col :span="8">
       <Clock />

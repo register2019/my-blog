@@ -5,7 +5,7 @@ import { Leafer } from 'leafer-ui'
 import { onUnmounted } from 'vue'
 import render from './render'
 const leafer = new Leafer({ view: window, fill: '#000000' })
-render(leafer)
+render(leafer, 70)
 
 onUnmounted(() => {
   leafer.destroy()

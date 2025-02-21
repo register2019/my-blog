@@ -4,7 +4,8 @@ export const docsList = [
     url: 'https://juejin.cn/post/7276344015451635764',
     isShowHome: true,
     isShowExample: true,
-    exampleUrl: ''
+    exampleUrl: new URL('@/assets/images/dynamicTable.png', import.meta.url).href,
+    height: 500
   },
   {
     title: 'React+leafer实现一个小游戏',
@@ -77,7 +78,7 @@ export const docsList = [
     exampleUrl: ''
   },
   {
-    title: '【Echarts】使用象形柱状图实现圆柱形柱状图',
+    title: '【Echarts】圆柱形柱状图',
     url: 'https://juejin.cn/post/7316357622848126995',
     isShowHome: true,
     isShowExample: true,

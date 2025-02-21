@@ -14,7 +14,14 @@ const toPage = (path: string) => {
     :key="docs.title"
     class="example"
   >
-    <img v-if="docs.exampleUrl" :src="docs.exampleUrl" style="width: 300px; height: 300px" />
+    <img
+      v-if="docs.exampleUrl"
+      :src="docs.exampleUrl"
+      :style="{
+        width: '300px',
+        height: docs.height ? `${docs.height}px` : '300px'
+      }"
+    />
     <template #footer>
       <div class="card-header">
         <span>{{ docs.title }}</span>

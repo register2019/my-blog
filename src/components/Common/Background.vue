@@ -8,6 +8,9 @@
 </template>
 
 <style lang="scss" scoped>
+@use "sass:math";
+@use "sass:list";
+
 .wrapper {
   background-color: #000;
 }
@@ -15,7 +18,7 @@
 @function get-box-shadow($count) {
   $shadow: ();
   @for $i from 1 through $count {
-    $shadow: append($shadow, random(100) + vw random(100) + vh, comma);
+    $shadow: list.append($shadow, math.random(100) + vw math.random(100) + vh, comma);
   }
   @return $shadow;
 }
@@ -23,8 +26,8 @@
 $durations: 1000s;
 @for $i from 1 through 4 {
   $size: #{$i}px;
-  $durations: $durations / 2;
-  $count: floor(200 / (4 - $i + 1));
+  $durations: math.div($durations, 2);
+  $count: math.floor(math.div(200, (4 - $i + 1)));
   .layer#{$i} {
     position: fixed;
     left: 0;
